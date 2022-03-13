@@ -93,13 +93,53 @@ class _HomePageState extends State<HomePage>
     setState(() {});
   }
 
+  Map<String, dynamic> _readAndroidBuildData(AndroidDeviceInfo build) {
+    return <String, dynamic>{
+      'Manufacturer': build.manufacturer,
+      'Product': build.product,
+      'Make': build.brand,
+      'Model': build.model,
+      'SecurityPatch': build.version.securityPatch,
+      'Android SDK': build.version.sdkInt,
+      'Android Version': build.version.release,
+      'Incremental Version': build.version.incremental,
+      'Version Codename': build.version.codename,
+      'Device Board': build.board,
+      'bootloader': build.bootloader,
+      'Display Info': build.display,
+      'Fingerprint': build.fingerprint,
+      'Hardware': build.hardware,
+      'Host': build.host,
+      'ID': build.id,
+      'Supported32BitAbis': build.supported32BitAbis,
+      'Supported64BitAbis': build.supported64BitAbis,
+      'SupportedAbis': build.supportedAbis,
+      'Tags': build.tags,
+      'Type': build.type,
+      'isPhysical Device': build.isPhysicalDevice,
+      'Android ID': build.androidId,
+      //'System Features': systemFeaturesList
+    };
+  }
+
   void getBatteryState() async {
-    /* if (systemDetailsGot) {
+    var deviceData = <String, dynamic>{};
+
+    if (deviceData.isEmpty) {
       DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
       var deviceInfo = await deviceInfoPlugin.androidInfo;
       formatSystemFeature(deviceInfo.systemFeatures);
-      systemDetailsGot = false;
-    } */
+      //var androidInfoVar = await DeviceInfo.deviceInfoPlugin.androidInfo;
+      //formatSystemFeature(androidInfoVar.systemFeatures);
+      deviceData = _readAndroidBuildData(deviceInfo);
+      deviceDetailsDataListVar = deviceData.keys
+          .map((String property) => deviceData[property])
+          .toList();
+      deviceDetailsTitleListVar =
+          deviceData.keys.map((String property) => property).toList();
+      //systemDetailsGot = false;
+      //continue;
+    }
 
     streamSubscription = battery.onBatteryStateChanged.listen((state) {
       batteryState = state;

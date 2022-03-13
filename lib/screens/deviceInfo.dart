@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:auto_animated/auto_animated.dart';
-import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/services.dart';
+import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:batteryplus/globals/global_var.dart';
 
@@ -26,72 +23,11 @@ class DeviceInfoList extends StatelessWidget {
 class DeviceInfo extends StatefulWidget {
   const DeviceInfo({Key? key}) : super(key: key);
 
-  static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-
   @override
   State<DeviceInfo> createState() => _DeviceInfoState();
 }
 
 class _DeviceInfoState extends State<DeviceInfo> {
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  Future<void> initPlatformState() async {
-    var deviceData = <String, dynamic>{};
-
-    try {
-      if (Platform.isAndroid) {
-        var androidInfoVar = await DeviceInfo.deviceInfoPlugin.androidInfo;
-        //formatSystemFeature(androidInfoVar.systemFeatures);
-        deviceData = _readAndroidBuildData(androidInfoVar);
-        deviceDetailsDataListVar = deviceData.keys
-            .map((String property) => deviceData[property])
-            .toList();
-        deviceDetailsTitleListVar =
-            deviceData.keys.map((String property) => property).toList();
-      }
-    } on PlatformException {
-      deviceData = <String, dynamic>{
-        'Error:': 'Failed to get platform version.'
-      };
-    }
-
-    if (!mounted) return;
-
-    setState(() {});
-  }
-
-  Map<String, dynamic> _readAndroidBuildData(AndroidDeviceInfo build) {
-    return <String, dynamic>{
-      'Manufacturer': build.manufacturer,
-      'Product': build.product,
-      'Make': build.brand,
-      'Model': build.model,
-      'SecurityPatch': build.version.securityPatch,
-      'Android SDK': build.version.sdkInt,
-      'Android Version': build.version.release,
-      'Incremental Version': build.version.incremental,
-      'Version Codename': build.version.codename,
-      'Device Board': build.board,
-      'bootloader': build.bootloader,
-      'Display Info': build.display,
-      'Fingerprint': build.fingerprint,
-      'Hardware': build.hardware,
-      'Host': build.host,
-      'ID': build.id,
-      'Supported32BitAbis': build.supported32BitAbis,
-      'Supported64BitAbis': build.supported64BitAbis,
-      'SupportedAbis': build.supportedAbis,
-      'Tags': build.tags,
-      'Type': build.type,
-      'isPhysical Device': build.isPhysicalDevice,
-      'Android ID': build.androidId,
-    };
-  }
-
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
@@ -180,43 +116,63 @@ class _DeviceInfoState extends State<DeviceInfo> {
                                     ),
                                   ]),
                             ),
-                          /* Center(
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Container(
-                                    margin: const EdgeInsets.all(10),
-                                    child: Table(
-                                      border: const TableBorder(),
-                                      children: [
-                                        TableRow(children: [
-                                          const Text("System Features",
-                                              textAlign: TextAlign.left,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          Table(
-                                            border: const TableBorder(),
-                                            children: [
-                                              for (int i = 0;
-                                                  i < systemFeaturesList.length;
-                                                  i++)
-                                                TableRow(children: [
-                                                  Flexible(
-                                                    child: Text(
-                                                      systemFeaturesList[i]
-                                                          .toString(),
-                                                      textAlign: TextAlign.left,
-                                                    ),
-                                                  ),
-                                                ])
-                                            ],
-                                          ),
-                                        ]),
-                                      ],
-                                    ),
+                          const SizedBox(height: 30),
+                          Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                const Text(
+                                  "Device Features",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(height: 10),
+                                ExpandChild(
+                                  hideArrowOnExpanded: false,
+                                  expandArrowStyle: ExpandArrowStyle.both,
+                                  child: Column(
+                                    children: [
+                                      for (int i = 0;
+                                          i < systemFeaturesList.length;
+                                          i++)
+                                        Text(systemFeaturesList[i].toString(),
+                                            textAlign: TextAlign.left),
+                                      /* Center(
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                margin:
+                                                    const EdgeInsets.all(10),
+                                                child: Table(
+                                                  border: const TableBorder(),
+                                                  children: [
+                                                    TableRow(children: [
+                                                      Text(
+                                                          systemFeaturesKeyList[
+                                                                  i]
+                                                              .toString(),
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold)),
+                                                      Text(
+                                                          systemFeaturesValueList[
+                                                                  i]
+                                                              .toString(),
+                                                          textAlign:
+                                                              TextAlign.left),
+                                                    ]),
+                                                  ],
+                                                ),
+                                              ),
+                                            ]),
+                                      ), */
+                                    ],
                                   ),
-                                ]),
-                          ), */
+                                ),
+                              ]),
                         ],
                       ),
                     ),

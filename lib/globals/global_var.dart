@@ -5,7 +5,6 @@ var deviceDetailsDataListVar = [];
 var deviceDetailsTitleListVar = [];
 var deviceDetailsIconListVar = [];
 int deviceDetailsListVarLength = 0;
-bool systemDetailsGot = true;
 
 double screenHeight = 0;
 double screenWidth = 0;
@@ -30,6 +29,8 @@ String remainingEnergy = "";
 String technology = "";
 String temperature = "";
 String voltage = "";
+List<String> systemFeaturesKeyList = [];
+List<String> systemFeaturesValueList = [];
 List<String> systemFeaturesList = [];
 
 var batteryDetailsDataListVar = [];
@@ -65,22 +66,28 @@ extension StringCasingExtension on String {
 }
 
 void formatSystemFeature(List<String?> systemFeatures) {
+  systemFeatures = systemFeatures.toSet().toList();
   for (int i = 0; systemFeatures.length > i; i++) {
     if (systemFeatures[i] != null) {
       String str1, str2, str3 = "";
       str1 = systemFeatures[i].toString();
       if (str1.contains(".")) {
-        str2 = str1.substring(0, str1.lastIndexOf('.'));
+        str2 = str1.substring(0, str1.lastIndexOf('.')).toCapitalized();
 
         str2 = str2.substring(0, str2.lastIndexOf('.'));
       } else {
-        str2 = str1;
+        str2 = str1.toCapitalized();
       }
       str3 = str1.substring(str2.length + 1);
-      str3 = str3.replaceFirst(".", " ➜ ");
+      //int id = str3.indexOf(".");
+      str3 = str3.replaceFirst(".", " ").toTitleCase();
+      //systemFeaturesKeyList.add(str3.substring(0, id).trim());
+      //systemFeaturesValueList.add(str3.substring(id + 1).trim());
+      str3 = str3.replaceFirst(" ", " ➜ ");
       systemFeaturesList.add(str3);
     }
   }
   //systemFeaturesList.add("str3");
-  //systemFeaturesList = systemFeaturesList.toSet().toList();
+  systemFeaturesList = systemFeaturesList.toSet().toList();
+  systemFeaturesList.sort();
 }

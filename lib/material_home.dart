@@ -18,7 +18,7 @@ class MaterialExample extends StatelessWidget {
         title: '',
         theme: theme,
         darkTheme: darkTheme,
-        home: HomePage(),
+        home: const HomePage(),
       ),
     );
   }
