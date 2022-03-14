@@ -1,16 +1,45 @@
-# batteryplus
+# Battery+
 
-A new Flutter project.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
-## Getting Started
+Battery+ is an open source battery info and device info for Android.
 
-This project is a starting point for a Flutter application.
+<img src="assets/Battery+ homescreen light discharge.png"
+    alt="Light Home screen"
+    height="256">
+<img src="assets/Battery+ homescreen dark discharge.png"
+    alt="Dark Home screen"
+    height="256">
+<img src="assets/Battery+ homescreen dark charge.png"
+    alt="Dark Home screen charging"
+    height="256">
+<img src="assets/Battery+ battery info dark.png"
+    alt="Dark Battery Info screen"
+    height="256">
+<img src="assets/Battery+ Device info dark.png"
+    alt="Dark Device Info screen"
+    height="256">
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Stable builds
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Requirements:**
+* Android Android 8 _Oreo_ or above
+
+You can download latest build of apk by clicking below image or downloading in from GitHub release
+
+[<img src="assets/GitHub-badge.png"
+    alt="Download battery+"
+    height="80">]()
+
+
+## Project Status
+
+Battery+ is actively developed by:
+* Keshav Pratap K ([@KeshavPratap-K](https://github.com/KeshavPratap-K)) - Developer  
+
+## Licenses
+
+Battery+ is licensed under the MIT.  
+The file LICENSE includes the full license text.
+For more details, check [the license notes](LICENSE.md).
