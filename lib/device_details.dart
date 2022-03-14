@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'screens/DeviceInfo.dart';
-import 'screens/BatteryInfo.dart';
+import 'package:batteryplus/screens/DeviceInfo.dart';
+import 'package:batteryplus/screens/BatteryInfo.dart';
 
 class DeviceDetails extends StatefulWidget {
   const DeviceDetails({Key? key}) : super(key: key);
