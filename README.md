@@ -27,7 +27,7 @@ You can download latest build of apk by clicking below image or downloading in f
 
 [<img src="assets/GitHub-badge.png"
     alt="Download battery+"
-    height="80">](release/battery+.apk)
+    height="80">](https://raw.githubusercontent.com/KeshavPratap-K/batteryplus/main/release/battery%2B.apk)
 
 
 ## Project Status
