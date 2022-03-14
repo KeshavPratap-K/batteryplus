@@ -4,9 +4,6 @@
 
 Battery+ is an open source battery info and device info for Android.
 
-<img src="assets/Battery+ homescreen light discharge.png"
-    alt="Light Home screen"
-    height="256">
 <img src="assets/Battery+ homescreen dark discharge.png"
     alt="Dark Home screen"
     height="256">
@@ -30,7 +27,7 @@ You can download latest build of apk by clicking below image or downloading in f
 
 [<img src="assets/GitHub-badge.png"
     alt="Download battery+"
-    height="80">]()
+    height="80">](build\app\outputs\flutter-apk\app-release.apk)
 
 
 ## Project Status
