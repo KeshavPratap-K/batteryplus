@@ -43,6 +43,6 @@ Battery+ is actively developed by:
 
 ## Licenses
 
-Battery+ is licensed under the GPL v2.
+Battery+ is licensed under the GPL v3.
 The file LICENSE includes the full license text.
 For more details, check [the license notes](LICENSE.md).
