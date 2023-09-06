@@ -1,0 +1,1 @@
+BatteryPlus is an open source battery and device info for Android.
