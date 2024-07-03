@@ -46,10 +46,6 @@ class ThemeProvider with ChangeNotifier {
       primarySwatch: isLightTheme ? Colors.grey : Colors.grey,
       primaryColor: isLightTheme ? Colors.white : const Color(0xFF2B2B2B),
       brightness: isLightTheme ? Brightness.light : Brightness.dark,
-      backgroundColor:
-          isLightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF121212),
-      scaffoldBackgroundColor:
-          isLightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF121212),
     );
   }
 

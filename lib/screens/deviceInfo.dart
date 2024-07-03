@@ -126,8 +126,8 @@ class _DeviceInfoState extends State<DeviceInfo> {
                                 ),
                                 const SizedBox(height: 10),
                                 ExpandChild(
-                                  hideArrowOnExpanded: false,
-                                  expandArrowStyle: ExpandArrowStyle.both,
+                                  hideIndicatorOnExpand: false,
+                                  expandIndicatorStyle: ExpandIndicatorStyle.both,
                                   child: Column(
                                     children: [
                                       for (int i = 0;

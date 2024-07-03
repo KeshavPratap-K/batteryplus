@@ -1,12 +1,12 @@
 BatteryPlus is a utility tool to get detailed information on device battery and other information related to device.
 
 FEATURES
-- Battry Health, charging amps reading
+- Battery Health, charging amps reading
 - Realtime reading on battery charging data
 - Detailed device information along with battery info.
 
 UPCOMING FEATURES
-- Persistant Notification with realtime update
+- Persistent Notification with realtime update
 - Realtime information on device information like RAM, CPU etc.
 
 
